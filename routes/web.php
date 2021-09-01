@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::method('uri','action/callback');
+Route::get('/schedules', [App\Http\Controllers\ScheduleController::class, 'index'])->middleware('auth');
