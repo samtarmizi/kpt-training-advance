@@ -18,4 +18,12 @@ class ScheduleController extends Controller
         return view('schedules.index', compact('schedules'));
 
     }
+
+    public function create()
+    {
+        // this is schedule create form
+        // show create form
+        // resources/views/schedules/create.blade.php
+        return view('schedules.create');
+    }
 }
