@@ -20,7 +20,7 @@
                                 <tr>
                                     <td>{{$schedule->id}}</td>
                                     <td>{{$schedule->title}}</td>
-                                    <td>{{ $schedule->user_id }}</td>
+                                    <td>{{ $schedule->pengguna->name }} - {{ $schedule->pengguna->email }}</td>
                                     <td>
                                         <a href="{{ route('schedule:show', $schedule) }}" class="btn btn-primary">Show</a>
                                         <a href="{{ route('schedule:edit', $schedule) }}" class="btn btn-success">Edit</a>
