@@ -31,6 +31,7 @@
 
                         </tbody>
                     </table>
+                    {{ $schedules->links() }}
                 </div>
             </div>
         </div>

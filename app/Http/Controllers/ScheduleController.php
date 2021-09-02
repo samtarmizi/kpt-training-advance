@@ -13,7 +13,7 @@ class ScheduleController extends Controller
         // select * from schedules - SQL Query
         //$schedules = Schedule::all();
         $user = auth()->user();
-        $schedules = $user->schedules;
+        $schedules = $user->schedules()->paginate(2);
 
         // return to view with $schedules
         // resurces/views/schedules/index.blade.php
