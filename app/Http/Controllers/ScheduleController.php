@@ -39,4 +39,9 @@ class ScheduleController extends Controller
         // return to index
         return redirect()->route('schedule:index');
     }
+
+    public function show(Schedule $schedule)
+    {
+        return view('schedules.show', compact('schedule'));
+    }
 }
