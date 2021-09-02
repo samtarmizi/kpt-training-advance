@@ -49,4 +49,15 @@ class ScheduleController extends Controller
     {
         return view('schedules.edit', compact('schedule'));
     }
+
+    public function update(Schedule $schedule, Request $request)
+    {
+        // update $schedule using input from edit form
+        $schedule->title = $request->title;
+        $schedule->description = $request->description;
+        $schedule->save();
+
+        // redirect to schedule index
+        return redirect()->route('schedule:index');
+    }
 }
