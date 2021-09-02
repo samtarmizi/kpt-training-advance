@@ -21,6 +21,7 @@
                                     <td>{{$schedule->title}}</td>
                                     <td>
                                         <a href="{{ route('schedule:show', $schedule) }}" class="btn btn-primary">Show</a>
+                                        <a href="{{ route('schedule:edit', $schedule) }}" class="btn btn-success">Edit</a>
                                     </td>
                                 </tr>
                             @endforeach
