@@ -26,4 +26,17 @@ class ScheduleController extends Controller
         // resources/views/schedules/create.blade.php
         return view('schedules.create');
     }
+
+    public function store(Request $request)
+    {
+        // store all input to table 'schedules' using model Schedule
+        $schedule = new Schedule();
+        $schedule->title = $request->title;
+        $schedule->description = $request->description;
+        $schedule->user_id = auth()->user()->id;
+        $schedule->save();
+
+        // return to index
+        return redirect()->route('schedule:index');
+    }
 }
