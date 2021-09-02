@@ -12,7 +12,7 @@
                         @csrf
                         <div class="form-group">
                             <label>Title</label>
-                            <input type="text" name="title" class="form-control" value={{ $schedule->title}}>
+                            <input type="text" name="title" class="form-control" value="{{ $schedule->title}}">
                         </div>
                         <div class="form-group">
                             <label>Description</label>
