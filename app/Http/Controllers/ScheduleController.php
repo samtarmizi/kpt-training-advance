@@ -9,13 +9,19 @@ use Storage;
 
 class ScheduleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // query all schedule from 'schedules' table to $schedules
-        // select * from schedules - SQL Query
-        //$schedules = Schedule::all();
-        $user = auth()->user();
-        $schedules = $user->schedules()->paginate(2);
+        if($request->keyword){
+            //search by title
+            $user = auth()->user();
+            $schedules = $user->schedules()->where('title', 'LIKE', '%'.$request->keyword.'%')->paginate(2);
+        }else{
+            // query all schedule from 'schedules' table to $schedules
+            // select * from schedules - SQL Query
+            //$schedules = Schedule::all();
+            $user = auth()->user();
+            $schedules = $user->schedules()->paginate(2);
+        }
 
         // return to view with $schedules
         // resurces/views/schedules/index.blade.php
