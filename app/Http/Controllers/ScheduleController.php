@@ -39,7 +39,12 @@ class ScheduleController extends Controller
         $schedule->save();
 
         // return to index
-        return redirect()->route('schedule:index');
+        return redirect()
+            ->route('schedule:index')
+            ->with([
+                'alert-type' => 'alert-primary',
+                'alert' => 'Your schedule has been saved!'
+            ]);
     }
 
     public function show(Schedule $schedule)
