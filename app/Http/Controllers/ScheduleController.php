@@ -65,7 +65,10 @@ class ScheduleController extends Controller
         $schedule->save();
 
         // redirect to schedule index
-        return redirect()->route('schedule:index');
+        return redirect()->route('schedule:index')->with([
+            'alert-type' => 'alert-success',
+            'alert' => 'Your schedule has been updated!'
+        ]);
     }
 
     public function destroy(Schedule $schedule)
@@ -74,6 +77,9 @@ class ScheduleController extends Controller
         $schedule->delete();
 
         // return to schedule index
-        return redirect()->route('schedule:index');
+        return redirect()->route('schedule:index')->with([
+            'alert-type' => 'alert-danger',
+            'alert' => 'Your schedule has been deleted!'
+        ]);
     }
 }
