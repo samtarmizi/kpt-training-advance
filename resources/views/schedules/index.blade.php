@@ -28,6 +28,7 @@
                         <thead>
                             <th>ID</th>
                             <th>Title</th>
+                            <th>Description</th>
                             <th>User (Creator)</th>
                             <th>Actions</th>
                         </thead>
@@ -36,6 +37,7 @@
                                 <tr>
                                     <td>{{$schedule->id}}</td>
                                     <td>{{$schedule->title}}</td>
+                                    <td>{{$schedule->description}}</td>
                                     <td>{{ $schedule->pengguna->name }} - {{ $schedule->pengguna->email }}</td>
                                     <td>
                                         <a href="{{ route('schedule:show', $schedule) }}" class="btn btn-primary">Show</a>
