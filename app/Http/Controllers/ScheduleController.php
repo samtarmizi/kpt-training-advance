@@ -87,6 +87,10 @@ class ScheduleController extends Controller
 
     public function destroy(Schedule $schedule)
     {
+        if($schedule->attachment){
+            Storage::disk('public')->delete($schedule->attachment);
+        }
+
         // delete $schedule from  db
         $schedule->delete();
 
