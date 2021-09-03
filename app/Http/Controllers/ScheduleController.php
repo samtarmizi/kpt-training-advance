@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Schedule;
+use File;
+use Storage;
 
 class ScheduleController extends Controller
 {
@@ -37,6 +39,18 @@ class ScheduleController extends Controller
         $schedule->description = $request->description;
         $schedule->user_id = auth()->user()->id;
         $schedule->save();
+
+        if($request->hasFile('attachment')){
+            // rename file - 5-2021-09-03.jpg/xls
+            $filename = $schedule->id.'-'.date("Y-m-d").'.'.$request->attachment->getClientOriginalExtension();
+
+            // store attachment on storage
+            Storage::disk('public')->put($filename, File::get($request->attachment));
+
+            // update row
+            $schedule->attachment = $filename;
+            $schedule->save();
+        }
 
         // return to index
         return redirect()
