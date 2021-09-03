@@ -30,6 +30,9 @@
                                         <a href="{{ route('schedule:show', $schedule) }}" class="btn btn-primary">Show</a>
                                         <a href="{{ route('schedule:edit', $schedule) }}" class="btn btn-success">Edit</a>
                                         <a onclick="return confirm('Are you sure?')" href="{{ route('schedule:destroy', $schedule) }}" class="btn btn-danger">Delete</a>
+                                        <hr>
+                                        <a onclick="return confirm('Are you sure want to force delete?')" href="{{ route('schedule:force-destroy', $schedule) }}" class="btn btn-danger">Force Delete</a>
+
                                     </td>
                                 </tr>
                             @endforeach
