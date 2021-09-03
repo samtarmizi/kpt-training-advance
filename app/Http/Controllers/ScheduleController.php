@@ -14,7 +14,10 @@ class ScheduleController extends Controller
         if($request->keyword){
             //search by title
             $user = auth()->user();
-            $schedules = $user->schedules()->where('title', 'LIKE', '%'.$request->keyword.'%')->paginate(2);
+            $schedules = $user->schedules()
+                ->where('title', 'LIKE', '%'.$request->keyword.'%')
+                ->orWhere('description', 'LIKE', '%'.$request->keyword.'%')
+                ->paginate(2);
         }else{
             // query all schedule from 'schedules' table to $schedules
             // select * from schedules - SQL Query
