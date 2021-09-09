@@ -42,6 +42,15 @@ class ScheduleController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|min:5',
+            'description' => 'required|min:100',
+        ],[
+            'title.required' => 'Wajib isi tajuk',
+            'description.required' => 'Wajib isi description',
+            'title.min' => 'Sila isi melebihi 5'
+        ]);
+
         // store all input to table 'schedules' using model Schedule
         $schedule = new Schedule();
         $schedule->title = $request->title;
